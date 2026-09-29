@@ -1,43 +1,38 @@
-// Question: Rotate an array to the right by k steps.
+// Question: Rotate an array to the left by k steps.
+// Time Complexity: O(n) - Single loop running n times
+// Space Complexity: O(n) - Extra temp array of size n
 
-/**
- * Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
- *
- * Example 1:
- * Input: nums = [1, 2, 3, 4, 5, 6, 7], k = 3
- * Output: [5, 6, 7, 1, 2, 3, 4]
- * Explanation:
- * rotate 1 steps to the right: [7, 1, 2, 3, 4, 5, 6]
- * rotate 2 steps to the right: [6, 7, 1, 2, 3, 4, 5]
- * rotate 3 steps to the right: [5, 6, 7, 1, 2, 3, 4]
- *
- * Example 2:
- * Input: nums = [-1, -100, 3, 99], k = 2
- * Output: [3, 99, -1, -100]
- * Explanation:
- * rotate 1 steps to the right: [99, -1, -100, 3]
- * rotate 2 steps to the right: [3, 99, -1, -100]
- *
- * Follow up:
- * - Try to come up with as many solutions as you can (e.g. using extra space vs in-place with O(1) extra space).
- */
+// function leftRotateByK(arr, k) {
+//   let temp = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     temp[i] = arr[(i + k) % arr.length];
+//   }
+//   console.log(temp);
+// }
 
-function rotateArray(nums, k) {
+// leftRotateByK([1, 2, 3, 4, 5, 6], 3);
 
-    // k = k % nums.length;
 
-    for (let i = 0; i < k; i++) {
 
-        // Last element nikaalo
-        let last = nums.pop();
 
-        // Last element ko beginning mein daalo
-        nums.unshift(last);
-    }
+// Without using space: O(1)
+// Time Complexity O(n)
+let arr = [1,2,3,4,5,6]
+let k = 3
 
-    return nums;
+let n = arr.length -1
+
+reverse(0 , k -1)
+reverse(k , n)
+reverse(0 , n)
+
+console.log(arr);
+
+function reverse(i, j) {
+  while (i < j) {
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+
+    i++;
+    j--;
+  }
 }
-
-let nums = [1, 2, 3, 4, 5, 6, 7];
-
-console.log(rotateArray(nums, 3));
